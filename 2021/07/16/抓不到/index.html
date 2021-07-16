@@ -152,28 +152,21 @@
 
         <div id="main" >
             <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >HttpRunner3.XX   step1：快速创建项目</h2></a>
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Charles抓不到包，这一篇绝对解决了！</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <p>前提条件：</p>
-<p>已安装httprunner+pytest+allure</p>
-<p>下载allure地址：<a target="_blank" rel="noopener" href="https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.8.0/">https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.8.0/</a></p>
-<p>创建项目：<br>    * httprunner startproject demo    创建一个工程<br>    * har2case har/award.har          指定har文件夹下，创建award.json<br>    * har2case -2y har/award.har        指定har文件夹下，创建award.yml</p>
-<p> 生成allure报告<br>    1. 执行用例并生成report</p>
-<pre><code>    * pytest -s -q login_test.py --alluredir &quot;D:\JieMian\JieMian_login\allure-results&quot;
-
-    * 生成allure报告里使用的allure-report，应不一致文件，所以使用allure-results
-
-2. 生成allure报告
-
-    * allure generate allure-results -o allure-report --clean   
-        * --clean清除之前生成的报告 
-
-3. 打开allure报告
-
-    * allure open allure-report
-</code></pre>
+                <p>绝对能解决Charles抓不到包的问题！（MAC）</p>
+<p>刚刚使用charles工具，一般基本都是跟着百度搜索的文章进行的安装和调试。但是由于不熟悉，就会出问题。如果你也因为打开charles抓不到数据，下面这些方法绝对能解决你的问题，千万别着急，一定要看到最后哦～</p>
+<p>1.确定你手机和电脑处在同一网络环境下<br>2.确定手机上的代理ip是电脑本机ip<br>查看电脑ip：<br>a:电脑打开终端输入：ifconfig<br>b：打开charles选择工具栏：help-&gt;SSL Proxying-&gt;选择最长的，不能复制（实在是太长了），我截了图!</p>
+<p><img src="/.com//%5Cimages%5Cpasted-1.png%5C" alt="upload successful"><br>然后就回弹窗告诉你ip地址。</p>
+<p>3.确认电脑安装了根证书<br>还是2的步骤，查看ip地址的下面一行，是安装根证书的命令。电脑输入网址打开下载根证书，安装后，苹果电脑还需要在配置一下。help -&gt; SSL Proxying -&gt; Install Charles Root Certificate，选择信任此根证书。在这<br><a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/2019082619391625.png">https://img-blog.csdnimg.cn/2019082619391625.png</a></p>
+<p><img src="/.com//%5Cimages%5Cpasted-2.png%5C" alt="upload successful"><br>4.确认手机安装了根证书<br>a：电脑上的证书安装好，手机浏览器要打开chls.pro/ssl,下载证书。<br>b：打开设置页面会有提示新下载的证书，点击安装。<br>c：然后手机设置-通用-关于本机-证书信任设置-找到charles开头的文件，打开！</p>
+<p>5.确认charles的proxy选项设置<br>Proxy -&gt; macOS Proxy，勾选上macOS Proxy</p>
+<p>6.确认是否代理冲突<br>设置 -&gt; 网络 -&gt; Wifi -&gt; 高级 -&gt; 代理，在左侧的配置协议列表中取消勾选”自动发现代理”和“自动代理配置”。</p>
+<p>7.如果上面都没问题，这个要注意了，那么一定是下面这个问题！！！<br>小声bb 这是我这个弱智遇到的问题！！！羞愧，所以也警示大家～～<br>工具栏 Proxy-&gt;Recording settings-&gt;include 里面<br>我设置了某个网页域名，除此域名之外都不进行抓包<br>所以打开是一片空白，因为我进行了过滤～<br>不要歧视我。其实是嫌弃老是自动抓包就过滤了，结果忘了这回事。大家估计也不经常遇到。</p>
+<p><img src="/.com//%5Cimages%5Cpasted-3.png%5C" alt="upload successful"></p>
+<p>到此为止，希望能帮到大家哈～</p>
 
             </div>
 
@@ -236,8 +229,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2021/06/22/%E5%B8%A6%E5%9B%BE%E7%89%87%E7%9A%84/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2021/06/22/%E5%B8%A6%E5%9B%BE%E7%89%87%E7%9A%84/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2021/07/16/%E6%8A%93%E4%B8%8D%E5%88%B0/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2021/07/16/%E6%8A%93%E4%B8%8D%E5%88%B0/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
